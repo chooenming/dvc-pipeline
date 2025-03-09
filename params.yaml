@@ -1,0 +1,10 @@
+data:
+    csv_file_path: ./imdp-dataset.csv
+    test_set_ratio: 0.3
+    train_csv_save_path: ./train.csv
+    test_csv_save_path: ./test.csv
+
+features:
+    vectorizer: count-vectorizer
+    train_features_save_path: ./train.joblib
+    test_features_save_path: ./test.joblib
