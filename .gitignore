@@ -1,2 +1,8 @@
 imdp-dataset.csv
 dvc-env/
+results.yaml
+test.csv
+train.csv
+test.joblib
+train.joblib
+model.joblib

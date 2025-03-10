@@ -1,0 +1,43 @@
+stages:
+  prepare_data:
+    cmd: python ./prepare_data.py
+    deps:
+      - ./prepare_data.py
+      - ./imdp-dataset.csv
+    params:
+      - data
+    outs:
+      - ./train.csv
+      - ./test.csv
+  make_features:
+    cmd: python ./make_features.py
+    deps:
+      - ./make_features.py
+      - ./train.csv
+      - ./test.csv
+    params:
+      - features
+    outs:
+      - ./train.joblib
+      - ./test.joblib
+  train:
+    cmd: python ./train.py
+    deps:
+      - ./train.py
+      - ./train.csv
+      - ./train.joblib
+    params:
+      - train
+    outs:
+      - ./model.joblib
+  evaluate:
+    cmd: python ./evaluate.py
+    deps:
+      - ./evaluate.py
+      - ./test.csv
+      - ./test.joblib
+      - ./model.joblib
+    params:
+      - evaluate
+    outs:
+      - ./results.yaml

@@ -8,7 +8,7 @@ def make_features(config):
     train_df = pd.read_csv(config.data.train_csv_save_path)
     test_df = pd.read_csv(config.data.test_csv_save_path)
 
-    vectorizer_name = config.feature.vectorizer
+    vectorizer_name = config.features.vectorizer
     vectorizer = {
         "count-vectorizer": CountVectorizer,
         "tfidf-vectorizer": TfidfVectorizer
@@ -20,10 +20,10 @@ def make_features(config):
     test_inputs = vectorizer.transform(test_df["review"])
 
     # save the result
-    joblib.dump(train_inputs, config.feature.train_features_save_path)
-    joblib.dump(test_inputs, config.feature.test_features_save_path)
+    joblib.dump(train_inputs, config.features.train_features_save_path)
+    joblib.dump(test_inputs, config.features.test_features_save_path)
 
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     config = OmegaConf.load("./params.yaml")
     make_features(config)
