@@ -9,3 +9,4 @@ This is to show the simple pipeline of machine learning, including
 4. Model Evaluation
 
 params.yaml is a default filename for DVC where it can detect the necessary configuration of the pipeline
+<br>dvc.yaml specifies all the configuration for DVC pipeline
